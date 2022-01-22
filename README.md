@@ -1,5 +1,7 @@
 # svelte-fw
 
+Simple Svelte Framework like SvelteKit
+
 ## usage
 
 ```bash
