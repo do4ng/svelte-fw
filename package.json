@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/run",
+    "build": "vite build",
     "frontend:dev": "vite",
     "framework:build": "cd framework && npx tsc",
     "framework:dev": "node framework/dist/dev.js"
