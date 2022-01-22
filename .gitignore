@@ -76,5 +76,6 @@ typings/
 .fusebox/
 
 build
+dist
 
 framework/dist
