@@ -1,9 +1,7 @@
 const logger = require('../framework/dist/logger/logger');
-const ConsoleScreen = require('console-screen');
-const chokidar = require('chokidar');
-const { join } = require('path');
 
-const screen = new ConsoleScreen();
+const build = require('../framework/dist/build');
+const { join } = require('path');
 
 try {
   // @ts-ignore
@@ -17,6 +15,8 @@ try {
   // @ts-ignore
   const cw = exec(`${cmd} run framework:dev`);
 
+  build.default(join(__dirname, '../'));
+
   cw.stdout.on('data', function (data) {
     process.stdout.write(data.toString());
   });
@@ -25,10 +25,10 @@ try {
     process.stdout.write(data.toString());
   });
 
-  exec(`${cmd} run frontend:dev`);
+  exec(`${cmd} run frontend:dev`).stderr.on('data', function (data) {
+    process.stdout.write(data.toString());
+  });
 
-  let index = 0;
-  let pr = '';
   console.clear();
   console.log(`  Server Running: ${'http://localhost:3000'.green.bold}`);
 } catch (e) {
