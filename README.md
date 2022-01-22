@@ -1,6 +1,6 @@
 # svelte-fw
 
-Simple Svelte Framework like SvelteKit
+A simple Svelte framework like [SvelteKit](https://kit.svelte.dev)
 
 ## usage
 
