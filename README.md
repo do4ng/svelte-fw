@@ -9,5 +9,7 @@ cd my-app
 
 yarn # npm install
 
-yarn dev
+yarn run framework:build # npm run framework:build
+
+yarn dev # npm run dev
 ```
