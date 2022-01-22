@@ -1,0 +1,2 @@
+<script>export let url;import { Router, Route } from "svelte-routing";import Root from './components/root.svelte';import component0 from './components/0.svelte';import component1 from './components/1.svelte';import component2 from './components/2.svelte';import component3 from './components/3.svelte';</script>
+<Router url="{url}"><Root><Route path="/about" component={component0} /><Route path="/" component={component1} /><Route path="/:page" component={component2} /><Route path="/:page/:slug" component={component3} /></Root></Router>

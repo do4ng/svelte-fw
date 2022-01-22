@@ -1,0 +1,9 @@
+/node_modules/
+/framework/dist/
+/assets/
+/dist/
+
+*.js
+*.d.ts
+
+vite.config.ts
