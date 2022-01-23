@@ -8,7 +8,7 @@
     "allowJs": true,
     "checkJs": true,
     "lib": ["ESNext", "DOM"],
-    "paths": { "@components": ["./components/*"], "@lib": ["./lib/*"] }
+    "paths": { "@components/*": ["./components/*"], "@lib/*": ["./lib/*"] }
   },
 
   "exclude": ["node_modules", "*/**/dist", "plugins", "*.js", "assets", "build", "scripts"]
