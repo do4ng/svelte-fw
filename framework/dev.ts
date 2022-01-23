@@ -3,6 +3,8 @@ import { resolve } from 'path';
 import BuildApp from './build';
 import logger from './logger/logger';
 
+// _dev
+
 chokidar
   .watch(resolve(__dirname, '../../pages'), {
     persistent: true,

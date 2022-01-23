@@ -7,6 +7,8 @@ import logger from './logger/logger';
 import readdir from './utils/readdir';
 import TimeTaken from './utils/timeTaken';
 
+// _build_
+
 export default function BuildApp(rootDir: string) {
   const time = new TimeTaken();
   const buildDir = path.join(rootDir, 'build');
@@ -55,7 +57,7 @@ export default function BuildApp(rootDir: string) {
     }
   });
 
-  const data = `<script>export let url;import { Router, Route } from "svelte-routing";import Root from './components/root.svelte';${$.components}</script>\n<Router url="{url}"><Root>${$.routes}</Root></Router>`;
+  const data = `<script>export let url;import ComponentError from "./components/_404.svelte";import { Router, Route } from "svelte-routing";import Root from './components/root.svelte';${$.components}</script>\n<Router url="{url}"><Root>${$.routes}</Root></Router>`;
 
   fs.outputFileSync(path.join(buildDir, 'index.svelte'), data);
 
