@@ -1,7 +1,10 @@
+const { join } = require('path');
 const logger = require('../framework/dist/logger/logger');
 
 const build = require('../framework/dist/build');
-const { join } = require('path');
+const { watch } = require('chokidar');
+const { default: timeTaken } = require('../framework/dist/utils/timeTaken');
+const { execSync } = require('child_process');
 
 try {
   // @ts-ignore
@@ -31,6 +34,16 @@ try {
 
   console.clear();
   console.log(`  Server Running: ${'http://localhost:3000'.green.bold}`);
+  watch(`${join(__dirname, '../')}/framework`, { ignored: [`${join(__dirname, '../')}/framework/dist`] }).on(
+    'change',
+    () => {
+      logger.default.info('Framework updated, rebuilding...');
+      const time = new timeTaken();
+      execSync(`${cmd} run framework:build`);
+      logger.default.info(`Framework rebuilt in ${time.get() / 1000}s`);
+      logger.default.info('Please restart the server');
+    }
+  );
 } catch (e) {
   logger.default.error(`Error: ${e.message}`);
 }
